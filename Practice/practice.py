@@ -165,3 +165,71 @@ date = randint(4, 28)
 print("오프라인 스터디 모임 날짜는 매월", str(date), "일로 선정되었습니다.")
 !! 정수형 str()으로 감싸기 !!
 """
+
+# 문자열
+'''
+sentence = '나는 소년입니다'
+print(sentence)
+sentence2 = "파이썬은 쉬워요"
+print(sentence2)
+sentence3 = """
+나는 소년이고,
+파이썬은 쉬워요
+"""
+print(sentence3)
+'''
+
+# 슬라이싱 (필요한 만큼만 잘라서 사용)
+"""
+jumin = "990101-1234567"
+print("성별 : " + jumin[7])
+print("연 : " + jumin[0:2]) # 0 부터 2 직전까지 (0,1)
+print("월 : " + jumin[2:4])
+print("일 : " + jumin[4:6])
+print("생년월일 : " + jumin[:6]) # 처음부터 6 직전까지
+print("뒤 7자리 : " + jumin[7:]) # 7 부터 끝까지
+print("뒤 7자리 (뒤에부터) : " + jumin[-7:]) # 맨 뒤에서 7번째부터 끝까지
+"""
+
+# 문자열 처리 함수
+"""
+python = "Python is Amazing"
+print(python.lower()) # 모두 소문자로 출력
+print(python.upper()) # 모두 대문자로 출력
+print(python[0].isupper()) # 첫 문자가 대문자인지 확인
+print(len(python)) # 문자열 길이 출력
+print(python.replace("Python", "Java")) # 문자열 변경 replace(변경 전, 변경 후)
+
+index = python.index("n")
+print(index)
+index = python.index("n", index + 1) # 앞선 문자를 찾은 이후 문자열에서 찾음
+print(index)
+print(python.find("Python")) # 문자열 가장 앞의 인덱스 값 리턴
+# find는 찾는 문자가 없으면 -1, index는 에러 발생!!
+print(python.count("n")) # 문자열에서 "n" 총 등장 횟수
+"""
+
+# 문자열 포맷
+"""
+# 방법 1
+print("나는 %d살입니다." % 20) # %d : 정수
+print("나는 %s을 좋아해요." % "파이썬") # %s : 문자열(string)
+print("Apple 은 %c로 시작해요." % "A") # %c : 문자(char)
+# %s로 정수, 문자 사용해도 무방
+print("나는 %s색과 %s색을 좋아해요." % ("파란", "빨간"))
+
+# 방법 2
+print("나는 {}살입니다.".format(20))
+print("나는 {}색과 {}색을 좋아해요.".format("파란", "빨간"))
+print("나는 {0}색과 {1}색을 좋아해요.".format("파란", "빨간")) # {} 내부 숫자는 format()의 인덱스 값
+print("나는 {1}색과 {0}색을 좋아해요.".format("파란", "빨간"))
+
+# 방법 3
+print("나는 {age}살이며, {color}색을 좋아해요.".format(age = 20, color = "빨간"))
+print("나는 {age}살이며, {color}색을 좋아해요.".format(color = "빨간", age = 20))
+
+# 방법 4
+age = 20
+color = "노란"
+print(f"나는 {age}살이며, {color}색을 좋아해요.")
+"""
