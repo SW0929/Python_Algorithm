@@ -462,3 +462,127 @@ print("치킨 당첨자 : {0}".format(winners[0]))
 print("커피 당첨자 : {0}".format(winners[1:]))
 print(" -- 축하합니다 --")
 """
+
+# if
+# if 조건:
+#     실행 명령문
+"""
+weather = input("오늘 날씨는 어때요? ")
+
+if weather == "비" or weather == "눈":
+    print("우산을 챙기세요")
+elif weather == "미세먼지":
+    print("마스크를 챙기세요")
+else:
+    print("준비물 필요 없어요")
+
+temp = int(input("기온은 어때요? "))
+
+if 30 <= temp:
+    print("너무 더워요. 나가지 마세요")
+elif 10 <= temp and temp < 30:
+    print("괜찮은 날씨에요")
+elif 0 <= temp < 10:
+    print("외투를 챙기세요")
+else:
+    print("너무 추워요. 나가지 마세요")
+"""
+
+# for
+# for 변수 in 리스트(또는 튜플, 문자열):
+#     수행 문장
+# range(시작, 끝)
+# range(끝)
+"""
+for waiting_num in [0, 1, 2, 3, 4]:
+    print("대기번호 : {0}".format(waiting_num))
+
+for waiting_num in range(1, 6):
+    print("대기번호 : {0}".format(waiting_num))
+
+starbucks = ["아이언맨", "토르", "아이엠 그루트"]
+for customer in starbucks:
+    print("{0}, 커피가 준비되었습니다.".format(customer))
+"""
+
+# while
+# while (조건) 조건에 만족하면 계속 실행
+"""
+customer = "토르"
+index = 5
+while index >= 1:
+    print("{0}, 커피가 준비 되었습니다. {1} 번 남았어요.".format(customer, index))
+    index -= 1
+    if index == 0:
+        print("커피는 폐기처분되었습니다.")
+
+customer= "아이언맨"
+index = 1
+while True:
+     print("{0}, 커피가 준비 되었습니다. 호출 {1} 회".format(customer, index))
+
+customer = "토르"
+person = "Unknown"
+
+while person != customer :
+    print("{0}, 커피가 준비 되었습니다.".format(customer))
+    person = input("이름이 어떻게 되세요? ")
+"""
+
+# continue 와 break
+"""
+absent = [2, 5] # 결석
+no_book = [7]
+for student in range(1, 11):
+    if student in absent:
+        continue
+    elif student in no_book:
+        print("오늘 수업 여기까지. {0}는 교무실로 따라와".format(student))
+        break
+    print("{0}, 책을 읽어봐".format(student))
+"""
+
+# 한 줄 for
+"""
+students = [1, 2, 3, 4, 5]
+# 출석번호가 1 2 3 4, 앞에 100을 붙이기로 함 -> 101, 102, 103, 104.
+students = [i+100 for i in students]
+
+# 학생 이름을 길이로 변환
+students = ["Iron man", "Thor", "I am groot"]
+students = [len(i) for i in students] # 리스트 내용을 반복하며 문자열의 길이 출력
+print(students)
+students = ["Iron man", "Thor", "I am groot"]
+students = [i.upper() for i in students] # 모든 글자 대문자로 변경
+print(students)
+"""
+
+# Quiz 5) 
+"""
+당신은 Cocoa 서비스를 이용하는 택시 기사님입니다.
+50명의 승객과 매칭 기회가 있을 때, 총 탑승 승객 수를 구하는
+프로그램을 작성하시오.
+
+조건 1 : 승객별 운행 소요 시간은 5분 ~ 50분 사이의 난수로 정해집니다.
+조건 2 : 당신은 소요 시간 5분 ~ 15분 사이의 승객만 매칭해야 합니다.
+
+(출력문 예제)
+[O] 1번째 손님 (소요시간 : 15분)
+[ ] 2번째 손님 (소요시간 : 50분)
+[O] 3번째 손님 (소요시간 : 5분)
+...
+[ ] 50번째 손님 (소요시간 : 16분)
+
+총 탑승 승객 : 2 분
+"""
+from random import *
+total_customer = 0 # 총 탑승 승객
+for i in range(1, 51):
+    customer = randint(5, 50) # 소요시간 5 ~ 50분 랜덤 배정 (조건 1)
+    if 5 <= customer <= 15: # 소요시간 5 ~ 15분인 승객 (조건 2)
+        print("[O] {0}번째 손님 (소요시간 : {1}분)".format(i, customer))
+        total_customer += 1
+    else: # 탑승하지 않는 승객
+        print("[ ] {0}번째 손님 (소요시간 : {1}분)".format(i, customer))
+
+print("총 탑승 승객 : {0} 분".format(total_customer))
