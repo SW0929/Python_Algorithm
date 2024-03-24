@@ -1,0 +1,1 @@
+__all__ = ["vietnam", "thailand"] # 여기 선언한 클래스만 사용가능.
