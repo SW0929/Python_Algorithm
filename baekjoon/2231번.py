@@ -17,7 +17,7 @@
 예제 출력 1 )
 198
 """
-
+# 풀이 1)
 N = int(input()) # 216
 result = 0
 for i in range(1, 1000001): # 입력 조건 1 ~ 1000000 까지 범위 설정
@@ -31,3 +31,19 @@ for i in range(1, 1000001): # 입력 조건 1 ~ 1000000 까지 범위 설정
         break
 
 print(result)
+
+# 시간 복잡도 O(n^2)
+
+# 풀이 2)
+n = int(input())
+for i in range(n):
+    # 분해합 공식
+    digit_sum = i + sum(map(int, str(i)))
+    # 생성자일 경우
+    if digit_sum == n:
+        print(i)
+        break
+else:
+    print(0)
+
+# 시간 복잡도 O(NlogN)
