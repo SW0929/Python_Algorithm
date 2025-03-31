@@ -16,7 +16,7 @@ brick = 0
  
 height = warehouse[0][0] # 초기 값 위치
 for i in range(height, big_row):
-    
+    print(i, warehouse[i][0])
 
 
 print(brick)
