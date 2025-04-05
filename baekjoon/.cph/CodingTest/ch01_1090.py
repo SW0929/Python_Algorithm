@@ -15,6 +15,7 @@
 """
 N = int(input())
 checker = [list(map(int, input().split())) for _ in range(N)]
+
 checker.sort()
 
 xList = [i[0] for i in checker] # 2차원 리스트 [0] 값 추출
