@@ -18,6 +18,6 @@ prefix= [0 for _ in range(n+1)]
 """
 for i in range(n):
     prefix[i+1] = max(prefix[i] + nList[i], nList[i])
-
+print(prefix)
 # 수열의 크기 보다 1 크게 만들었기 때문에 맨 앞 인덱스 제외
-print(max(prefix[1:]))
+print(max(prefix))

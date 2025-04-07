@@ -14,6 +14,7 @@ result = [] # 간격 만큼의 합을 구하기 위한 리스트 생성
 for i in range(K, N+1): # 간격 k 부터 시작
     # 간격 인덱스 부터 1 증가 - (간격 인덱스-간격)
     result.append(prefix[i] - prefix[i - K])
+
 print(max(result))
 
 """

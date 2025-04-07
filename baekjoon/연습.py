@@ -1,15 +1,16 @@
-N = int(input())
-num = list(map(int, input().split()))
+N, H = map(int, input().split())
+prefix = [0] * H
 
-result = 0
+for i in range(N):
+    a = int(input())
+    if i % 2 == 0:
+        prefix[0] += 1
+        prefix[a] -= 1
+    else:
+        prefix[H-i] += 1
+for i in range(1, H):
+    prefix[i] += prefix[i-1]
 
-for i in num:
-    check = 0
-    if i == 1:
-        continue
-    for j in range(2, int(i**0.5)+1):
-        if i % j == 0:
-            check += 1
-    if check == 0:
-        result += 1
-print(result)
+result = min(prefix)
+fre = prefix.count(result)
+print(result, fre)
