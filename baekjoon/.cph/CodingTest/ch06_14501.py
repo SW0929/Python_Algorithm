@@ -5,10 +5,10 @@
 def recursion(day):
     
     if day == n:
-        return 0
+        return 0 # 시작점이 퇴사 당일이라 0을 리턴 해줌
     if day > n:
         return -99999999
-    if dp[day] != -1: # 이미 저장되었다면
+    if dp[day] != -1: # 이미 저장되었다면 (재사용)
         return dp[day]
         
     

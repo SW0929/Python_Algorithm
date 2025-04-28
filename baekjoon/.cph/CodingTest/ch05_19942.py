@@ -1,49 +1,48 @@
 # 문제 2
 # 19942
 # 재귀(백트래킹)
-# 틀렸음 다시 풀어보기 - 조건 확인
 
-def recursion(idx, Protein, Fat, Carbo, Vitamin, Price):
+def recur(idx,p,f,c,v,price):
     global answer
     global used
-    global used_idx
-    
-    
-    if protein <= Protein and fat <= Fat and carbo <= Carbo and vitamin <= Vitamin:
-        if answer > Price:
-            answer = min(answer, Price)
-            used_idx = []
+    global answer_used
+
+    if p >= protein and f >= fat and c >= carbo and v >= vitamin:
+        if answer > price:
+            answer = min(answer, price)
+            answer_used = []
             for i in used:
-                used_idx.append(i)
-    
+                answer_used.append(i)            
     if idx == n:
         return
-        
-    # 재료가 선택 되었다면
+    
+    # 재료 
     used.append(idx+1)
-    recursion(idx+1, ingredient[idx][0]+Protein,
-        ingredient[idx][1]+Fat, ingredient[idx][2]+Carbo,
-        ingredient[idx][3]+Vitamin, ingredient[idx][4]+Price)
-        
-    
-    # 재료가 선택되지 않았다면
+    recur(idx+1, p+ing[idx][0], f +ing[idx][1], c + ing[idx][2], v + ing[idx][3], price+ing[idx][4])
     used.pop()
-    recursion(idx+1, Protein, Fat, Carbo, Vitamin, Price)
-        
-    
-
-
+    # 미사용
+    recur(idx+1,p,f,c,v,price)
 
 n = int(input())
+
+protein, fat, carbo, vitamin = map(int,input().split())
+
+ing = [[] for _ in range(n)]
+
+for i in range(n):
+    a,b,c,d,e = map(int,input().split())
+    ing[i] = [a,b,c,d,e]
+
+answer = 1e9
 used = []
-used_idx = []
+answer_used = []
 
-protein, fat, carbo, vitamin = list(map(int, input().split()))
+recur(0,0,0,0,0,0)
 
-ingredient = [list(map(int, input().split())) for _ in range(n)]
+#answer_used.sort() 굳이 필요없음 재귀에서 순서대로 저장하기 때문
 
-answer = 999999999
-recursion(0, 0, 0, 0, 0, 0)
-
-print(answer)
-print(*used_idx)
+if answer_used: # 리스트가 비어있으면 False, 아니면 True
+    print(answer)
+    print(*answer_used)
+else:
+    print(-1)

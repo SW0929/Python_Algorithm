@@ -1,3 +1,6 @@
+"""
+# 2178
+# BFS
 import sys
 from collections import deque
 input = sys.stdin.readline
@@ -25,3 +28,30 @@ miro = [list(map(int, input().strip())) for _ in range(N)]
 bfs(0,0)
 
 print(visited[N-1][M-1])
+"""
+# 1697
+# BFS
+
+import sys
+from collections import deque
+input = sys.stdin.readline
+
+X, K = map(int, input().strip().split())
+
+visited = [0] * 100_001
+
+def bfs(start):
+    q = deque()
+    q.append(start)
+    
+    while q:
+        current = q.popleft()
+        if current == K:
+            return visited[current]
+        for next in [current - 1, current + 1, current * 2]:
+            if 0 <= next < 100_001 and visited[next] == 0:
+                visited[next] = visited[current] + 1
+                q.append(next)
+            
+        print(visited[:17])
+print(bfs(X))

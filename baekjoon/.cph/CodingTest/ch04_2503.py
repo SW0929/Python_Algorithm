@@ -21,7 +21,7 @@ def checker(idx,number):
 
     A = number // 100
     B = (number - (A * 100)) // 10 
-    C = number % 10
+    C = number % 10 
 
     if A == 0 or B == 0 or C == 0:
         return False

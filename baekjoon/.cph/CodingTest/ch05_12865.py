@@ -1,7 +1,7 @@
 # 문제 4
 # 12865
 # 재귀(백트래킹)
-# 미완성
+# 재귀로 정답은 맞으나 시간초과
 
 def recursion(idx, weight, value):
     global answer

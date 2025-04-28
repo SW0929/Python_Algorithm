@@ -16,4 +16,4 @@ for y in range(1, n+1):
         else:
             dp[y][x] = max(dp[y-1][x-weight] + value, dp[y-1][x])
 
-print(dp)
+print(dp[n][k])
