@@ -21,7 +21,7 @@ infor = {
 for _ in range(T):
     a, b = map(str, input().rstrip().split())
     
-    a = a.rjust(5)
+    a = a.rjust(5) # 5개 공간 확보하고 없으면 빈칸으로 채움
     b = b.rjust(5)
     
     result = 0
